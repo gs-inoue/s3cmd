@@ -16,7 +16,7 @@ import pprint
 from xml.sax import saxutils
 from logging import debug, info, warning, error
 from stat import ST_SIZE
-from urllib import quote_plus
+from urllib import quote
 
 try:
     from hashlib import md5
@@ -1042,7 +1042,7 @@ class S3(object):
             ## Don't do any pre-processing
             return string
 
-        encoded = quote_plus(string, safe="~/")
+        encoded = quote(string, safe="~/")
         debug("String '%s' encoded to '%s'" % (string, encoded))
         return encoded
 
